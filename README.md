@@ -49,6 +49,7 @@
 * O Elm pode ser instalado também através do NPM, que é a opção mais recomendada.
 * O Elm pode ser instalado utilizando o comando `npm install -g elm`.
 * O Elm possui um excelente suporte para diversos editores como o Atom e o Sublime Text.
+* No Sublime Text, recomenda-se instalar o *Elm Language Package* através do instalador de pacotes.
 * No Atom, recomenda-se instalar o pacote `language-elm` para ter *autocomplete* e *syntax highlight*.
 * A instalação de pacotes no Atom pode ser feita através da linha de comando utilizando o `apm`.
 * O pacote `language-elm` pode ser instalado utilizando o comando `apm install language-elm`.
@@ -105,3 +106,22 @@
 * O Elm Reactor cria um um servidor web, compila e executa automaticamente a aplicação no navegador.
 * Para iniciar o Elm Reactor utiliza-se o comando `elm reactor`.
 * Para executar a aplicação basta acessar o endereço `http://localhost:8000` no navegador e clicar no nome do arquivo Elm da aplicação desejada.
+
+## [05 - Writing & Using Functions](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254139)
+
+* Uma função no Elm é definida pelo seu nome, seguido dos argumentos separados por espaço, um sinal de igual e o corpo da função. Por exemplo, `add a b = a + b`.
+* Não é necessário utilizar `return` pois o corpo da função é uma expressão.
+* Para chamar a função basta informar o nome da função seguido dos parâmetros separados por espaços. Por exemplo, `add 1 2`.
+* Como o corpo de uma função é uma expressão, uma cláusula `if` deverá sempre conter `else`.
+* O Elm é **fortemente tipado** e não faz conversão implícita de tipos.
+* A função `toString` é utilizada para converter um valor de qualquer tipo para uma String.
+* Ela é importada por padrão em todas as aplicações Elm.
+* É recomendável utilizar parênteses para sinalizar a ordem da aplicação das funções.
+* Por exemplo, em `toString add 1 2` estamos passando três argumentos para a função `toString`. Para realizar a adição e depois a conversão para string deveremos utilizar os parênteses como em `toString (add 1 2)`.
+* O operador `|>` (*forward pipe operator*) é utilizado para utilizar o resultado da expressão à esquerda como argumento da expressão à direita.
+* A **aplicação parcial de uma função** consiste em chamar uma função fornecendo parte de seus argumentos.
+* Uma **função anônima** é definida por uma barra invertida (`\`), seguidos dos argumentos separados por espaço, um sinal `->` e o corpo da função anônima. Por exemplo, `\a -> a % 2 == 0` é uma função anônima que verifica se um número é par ou ímpar.
+* Em Elm não é permitido a utilização de funções impuras.
+* É possível utilizar **variáveis locais** através da cláusula `let .. in`. Neste caso, só podemos atribuir um valor e nunca alterá-lo por causa da **imutabilidade**.
+* 
+* 
