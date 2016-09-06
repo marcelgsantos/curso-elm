@@ -123,5 +123,16 @@
 * Uma **função anônima** é definida por uma barra invertida (`\`), seguidos dos argumentos separados por espaço, um sinal `->` e o corpo da função anônima. Por exemplo, `\a -> a % 2 == 0` é uma função anônima que verifica se um número é par ou ímpar.
 * Em Elm não é permitido a utilização de funções impuras.
 * É possível utilizar **variáveis locais** através da cláusula `let .. in`. Neste caso, só podemos atribuir um valor e nunca alterá-lo por causa da **imutabilidade**.
-* 
-* 
+
+## [06 - More On Functions](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254140)
+
+* Em Elm, **quase tudo** é uma **função** ou "funciona" como uma função.
+* Em Elm, o operador `+` é uma **função infixa**.
+* É mais comuns utilizar-se **funções prefixas** em **programação imperativa**.
+* Uma **função infixa**, como o operador `+`, é posicionada **entre os parâmetros** e permite uma **melhor legibilidade**.
+* Ao criar uma função que **não contenha** caracteres alfanuméricos, ela será uma **função infixa**. Por exemplo, `(~+) a b = a + b + 0.1` é uma função infixa e é utilizada como em `result = 1 ~+ 2`.
+* Pode-se chamar uma **função prefixa** como uma **função infixa** utilizando *backticks* (`` ` ``). Por exemplo, ``result = 1 `add` 2``.
+* Pode-se chamar uma **função infixa** como uma **função prefixa** utilizando parênteses. Por exemplo, `result = (~+) 1 2`.
+* Uma das vantagens de se utilizar funções puras é a **composição de funções**.
+* A **composição de função** permite criar uma nova função a partir da combinação de uma ou mais funções.
+* O operador `>>` permite realizar a **composição de funções** em Elm.

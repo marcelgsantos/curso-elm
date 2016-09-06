@@ -7,6 +7,10 @@ add a b =
     a + b
 
 
+(~+) a b =
+    a + b + 0.1
+
+
 counter =
     0
 
