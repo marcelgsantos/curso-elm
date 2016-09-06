@@ -136,3 +136,23 @@
 * Uma das vantagens de se utilizar funções puras é a **composição de funções**.
 * A **composição de função** permite criar uma nova função a partir da combinação de uma ou mais funções.
 * O operador `>>` permite realizar a **composição de funções** em Elm.
+
+## [07 - Static Type System](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254142)
+
+* O Elm possui **tipos primitivos** como `String`, `Int` e `Bool` e também **tipos avançados** como `Records` e `Union Types`.
+* No Elm, o **sistema de tipos estático** é razoavelmente diferente do que estamos acostumados.
+* Sistemas de tipos estáticos normalmente possuem **alguns problemas** como:
+    * declarações longas e verbosas
+    * compilação lenta
+    * mensagens de erros de difícil compreensão
+    * erros em tempo de execução
+* O **sistema de tipos estático** do Elm possui as seguintes características:
+    * inferência de tipos
+        * não é necessário declarar explicitamente os tipos
+        * assemelha-se linguagens dinâmicas
+    * compilação rápida
+    * mensagens de erros amigáveis e úteis
+        * sugestões de correção
+    * sem erros em tempo de execução
+* Um compilador é responsável por transformar o código fonte em linguagem de máquina ou linguagem intermediária.
+* No Elm, o **processo de compilação** permite transformar o código fonte Elm em JavaScript e encontrar e consertar erros em tempo de desenvolvimento.
