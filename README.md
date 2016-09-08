@@ -156,3 +156,51 @@
     * sem erros em tempo de execução
 * Um compilador é responsável por transformar o código fonte em linguagem de máquina ou linguagem intermediária.
 * No Elm, o **processo de compilação** permite transformar o código fonte Elm em JavaScript e encontrar e consertar erros em tempo de desenvolvimento.
+
+## [08 - Elm Types](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254143)
+
+* O Elm possui **tipos primitivos** como `String`, `Char`, `Bool`, `Float` e `number`.
+* O tipo `number` é um **tipo genérico** que pode ser `Integer` ou `Float`.
+* O tipo `List` representa uma **lista de valores** todos do mesmo tipo. Por exemplo, `["Anna", "Bob", "Carol"]` é uma lista de strings.
+* O tipo tupla representa uma **lista ordenada de valores** não necessariamente do mesmo tipo. Por exemplo, `("pi", 3.14)` é uma tupla com uma string e um float.
+* O tipo `Record` representa uma estrutura de dados semelhante a um **objeto** no JavaScript. Por exemplo, `person = { name = "James", age = 42 }`.
+* Não é possível acessar um **campo inexistente** em um `Record`.
+* Um campo de um `Record` não pode ser `undefined` ou `null` e não pode ser auto-referenciado.
+* Um `Record` é um grupo de **campos relacionados**.
+* Para acessar um campo de um `Record` utiliza-se a **notação de ponto** como em `person.name`, por exemplo.
+* Ao tentar acessar um campo inexistente em um `Record` um **erro de compilação** será disparado.
+* Pode-se acessar **como uma função** o campo de um `Record` através da notação de ponto como em `.name person`, por exemplo.
+* Um campo de um `Record` pode ser alterado utilizando a sintaxe `newPerson = { person | age = 31 }`.
+* No Elm, as estruturas de dados são **imutáveis**. Logo, ao alterar o valor de `Record` um novo `Record` é gerado.
+* No Elm, tipos mais complexos podem ser representados através de ***union types***.
+* As ***union types*** assemelham-se a enumerações de tipos diferentes.
+* Pode-se criar ***union types*** para tipos diferentes de eventos ou ações em uma aplicação. Por exemplo, `type Action = AddPlayer | Score` ou `type Action = AddPlayer String | Score Int Int`.
+* Os tipos que levam **parâmetros adicionais** podem ser tratados com funções (sua anotação de tipos é representada como funções).
+* Em uma aplicação Elm, costuma-se utilizar uma *union type* chamada `Msg` por convenção.
+* A mensagem flui através da aplicação e determinadas ações tratam as mensagens corretamente.
+* Pode-se utilizar ***pattern matching*** para decodificar as mensagens e responder a cada uma delas.
+```elm
+type Msg = Msg1 Int | Msg2 String
+msg = Msg2 "James"
+case msg of
+    Msg1 num -> "The number is " ++ (toString num)
+    Msg2 name -> "Hello " ++ name
+```
+* O ***pattern matching*** deve cobrir o maior número de situações possíveis.
+* A maioria das linguagens sejam **estáticas** ou **dinâmicas** permitem que variáveis armazenem um valor ou nulo.
+* O `null` é um dos **maiores problemas** de projetos de linguagens de programação.
+* O problema é conhecido como "billion-dollar mistake".
+* Muito tempo é desperdiçado com exceções ocasionados por **valores nulos**.
+* O Elm **não suporta** valores nulos.
+* Em Elm, utiliza-se o tipo `Maybe` para representar uma variável que pode ou não conter um valor.
+* `Maybe` é um *union type* que pode conter um valor (ou `Just`) ou nenhum valor (ou `Nothing`).
+* Pode-se obter `Nothing` ao tentar retornar o primeiro elemento de uma lista vazia. Por exemplo, `List.head []` retorna `Nothing`.
+* Utilizar `Maybe` é como **checar por nulos** em outras linguagens.
+* Utilizar `Maybe` permite que o compilador garanta a sua utilização correta.
+* O tipo `Result` é utilizado em uma computação que **pode falhar**.
+* Ele deve ser utilizado para o **gerenciamento de erros** no Elm.
+* `Result` é um *union type* com duas possibilidades como `Maybe`. Uma possibilidade é `Ok`, que contem o **valor calculado** e a outra possibilidade é `Err`, que contem **informações de erro**.
+* Pode-se utilizar a função `Maybe.withDefault` para mostrar uma **mensagem padrão** caso `Maybe` não contenha nenhuma informação.
+* As **funções são valores** e podem ser passadas como argumentos e retornadas como valor.
+* Uma **função de alta ordem** é uma função que recebe outra função como argumento ou retorna como valor.
+* A função `Maybe.map` é um exemplo de uma função de alta ordem.
