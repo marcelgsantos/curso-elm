@@ -204,3 +204,19 @@ case msg of
 * As **funções são valores** e podem ser passadas como argumentos e retornadas como valor.
 * Uma **função de alta ordem** é uma função que recebe outra função como argumento ou retorna como valor.
 * A função `Maybe.map` é um exemplo de uma função de alta ordem.
+
+## [09 - Type Annotations](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254144)
+
+* As **anotações de tipos** estão presentes nos linters, na documentação e no REPL do Elm.
+* As anotações de tipos são utilizadas para **informar o tipo** de entrada e saída de uma função ou de uma constante.
+* A utilização de anotação de tipos é **opcional** no Elm.
+* O compilador pode **inferir os tipos**.
+* É encorajado utilizar **anotações de tipos** em Elm.
+* Algumas **vantanges** de utilizar anotações de tipos são:
+    * expressividade - permite conhecer com mais detalhes as entradas e saídas das funções
+    * restritividade - permite ser mais específico ao definir um anotação de tipo
+    * escrever melhores funções - permite escrever funções mais gerais e usáveis
+* É difícil pensar em tipos e pensar de maneira abstrata e isso vem com experiência.
+* Para definir uma **anotação de tipo** para uma função utilize o nome da função, seguido de dois-pontos, seguido dos tipos dos argumentos e do tipo de retorno separados por `->`. Por exemplo, `add : Int -> Int -> Int`.
+* Pode-se definir uma anotação de tipos para uma **lista de registros** como em `cart : List { name : String, ... }`.
+* Pode-se definir um *type alias* como em `type alias Item = { name : String, ... }`.
