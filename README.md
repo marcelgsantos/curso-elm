@@ -2,13 +2,13 @@
 
 ## [01 - Introduction](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1256063)
 
-* Elm é um linguagem de programação projetada para construir aplicações front-end.
-* Elm é uma linguagem de programação funcional e excelente alternativa ao JavaScript.
-* Em JavaScript é difícil de escrever bom código, livre de bugs e manutenível.
+* Elm é um linguagem de programação projetada para construir **aplicações front-end**.
+* Elm é uma linguagem de **programação funcional** e excelente alternativa ao JavaScript.
+* Em JavaScript é **difícil** de escrever bom código, livre de bugs e manutenível.
 * É necessario conhecimento extensivo, muita experiência e disciplina para isso.
-* Muitas linguagens foram criadas para tentar melhorrar o JavaScript como CoffeeScript, Dart e TypeScript.
+* Muitas linguagens foram criadas para tentar melhorar o JavaScript como CoffeeScript, Dart e TypeScript.
 * O JavaScript evoluiu bastante adicionando novas funcionalidades, porém não removeu as partes ruins.
-* Algumas das principais características e benefícios da linguagem Elm:
+* Algumas das **principais características** e benefícios da linguagem Elm:
     * ótima linguagem para escrever aplicações web front-end
     * cuidadosamente pensada e criada por Evan Czaplicki
     * poderosa e simples de se utilizar
@@ -68,14 +68,14 @@
 
 ## [03 - What Is Functional Programming](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254138)
 
-* A programação funcional é um estilo de programação que utiliza funções puras.
-* Uma função pura é uma função que retorna um valor baseado na entrada e sem efeitos colaterais.
-* Uma função pura possui as seguintes características:
+* A **programação funcional** é um estilo de programação que utiliza **funções puras**.
+* Uma **função pura** é uma função que retorna um valor baseado na entrada e sem efeitos colaterais.
+* Uma **função pura** possui as seguintes características:
     * deve ter uma entrada de valor
     * deve retornar um valor
     * não deve utilizar estados
     * não deve causar efeito colateral
-* Uma função pura possui as seguintes vantagens:
+* Uma **função pura** possui as seguintes vantagens:
   * reusável
   * componível
   * testável
@@ -128,7 +128,7 @@
 
 * Em Elm, **quase tudo** é uma **função** ou "funciona" como uma função.
 * Em Elm, o operador `+` é uma **função infixa**.
-* É mais comuns utilizar-se **funções prefixas** em **programação imperativa**.
+* É mais comum se utilizar **funções prefixas** em **programação imperativa**.
 * Uma **função infixa**, como o operador `+`, é posicionada **entre os parâmetros** e permite uma **melhor legibilidade**.
 * Ao criar uma função que **não contenha** caracteres alfanuméricos, ela será uma **função infixa**. Por exemplo, `(~+) a b = a + b + 0.1` é uma função infixa e é utilizada como em `result = 1 ~+ 2`.
 * Pode-se chamar uma **função prefixa** como uma **função infixa** utilizando *backticks* (`` ` ``). Por exemplo, ``result = 1 `add` 2``.
@@ -154,7 +154,7 @@
     * mensagens de erros amigáveis e úteis
         * sugestões de correção
     * sem erros em tempo de execução
-* Um compilador é responsável por transformar o código fonte em linguagem de máquina ou linguagem intermediária.
+* Um **compilador** é responsável por transformar o código fonte em **linguagem de máquina** ou **linguagem intermediária**.
 * No Elm, o **processo de compilação** permite transformar o código fonte Elm em JavaScript e encontrar e consertar erros em tempo de desenvolvimento.
 
 ## [08 - Elm Types](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254143)
@@ -177,7 +177,7 @@
 * Pode-se criar ***union types*** para tipos diferentes de eventos ou ações em uma aplicação. Por exemplo, `type Action = AddPlayer | Score` ou `type Action = AddPlayer String | Score Int Int`.
 * Os tipos que levam **parâmetros adicionais** podem ser tratados com funções (sua anotação de tipos é representada como funções).
 * Em uma aplicação Elm, costuma-se utilizar uma *union type* chamada `Msg` por convenção.
-* A mensagem flui através da aplicação e determinadas ações tratam as mensagens corretamente.
+* A **mensagem** flui através da aplicação e **determinadas ações** tratam as mensagens corretamente.
 * Pode-se utilizar ***pattern matching*** para decodificar as mensagens e responder a cada uma delas.
 ```elm
 type Msg = Msg1 Int | Msg2 String
@@ -208,15 +208,52 @@ case msg of
 ## [09 - Type Annotations](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254144)
 
 * As **anotações de tipos** estão presentes nos linters, na documentação e no REPL do Elm.
-* As anotações de tipos são utilizadas para **informar o tipo** de entrada e saída de uma função ou de uma constante.
+* As anotações de tipos são utilizadas para **informar o tipo** de entrada e saída de uma **função** ou de uma **constante**.
 * A utilização de anotação de tipos é **opcional** no Elm.
 * O compilador pode **inferir os tipos**.
 * É encorajado utilizar **anotações de tipos** em Elm.
 * Algumas **vantanges** de utilizar anotações de tipos são:
-    * expressividade - permite conhecer com mais detalhes as entradas e saídas das funções
-    * restritividade - permite ser mais específico ao definir um anotação de tipo
-    * escrever melhores funções - permite escrever funções mais gerais e usáveis
+    * *expressividade* - permite conhecer com mais detalhes as entradas e saídas das funções
+    * *restritividade* - permite ser mais específico ao definir uma anotação de tipo
+    * *escrever melhores funções* - permite escrever funções mais gerais e usáveis
 * É difícil pensar em tipos e pensar de maneira abstrata e isso vem com experiência.
 * Para definir uma **anotação de tipo** para uma função utilize o nome da função, seguido de dois-pontos, seguido dos tipos dos argumentos e do tipo de retorno separados por `->`. Por exemplo, `add : Int -> Int -> Int`.
+* O tipo `comparable` representa qualquer tipo que pode ser **comparado** como strings, caracteres e números.
 * Pode-se definir uma anotação de tipos para uma **lista de registros** como em `cart : List { name : String, ... }`.
 * Pode-se definir um *type alias* como em `type alias Item = { name : String, ... }`.
+* A utilização de *type aliases* permite torna o código mais **compreensível**.
+* A **anotação de tipos** da função `main` é `main : Html.Html msg`.
+
+## [10 - Creating Your First Real App - A Calorie Counter](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254147)
+
+* Uma **aplicação Elm** possui três partes: model, update e view.
+* A **model** é como um contêiner que **armazena os dados** que a aplicação necessita.
+* A **model** pode ser um **tipo primitivo** como um `Int` ou `String` ou um **tipo complexo** como um `Record`. Por exemplo, `type alias Model = Int`.
+* A **seção update** é responsável por **atualizar** a **model** ou **estado da aplicação**.
+* Na **seção update** definimos *(1) o que pode acontecer na aplicação* e *(2) como a model é atualizada*.
+* Definimos *o que pode acontecer na aplicação* utilizando *union types* como em `type Msg = AddCalorie | Clear`.
+* Definimos *como a model é atualizada* utilizando um função `update` que recebe **uma mensagem** e a **model** como argumentos e retorna uma **nova model**. Por exemplo, `update : Msg -> Model -> Model`.
+* A **view** é responsável por **criar o HTML** levando em consideração a *model atual* ou o *estado da aplicação*.
+* A **view** é criada de maneira **declarativa**.
+* A **view** normalmente é uma função `view` que recebe a **model** como argumento e retorna o **HTML**. Por exemplo, `view : Model -> Html Msg`.
+* No **módulo** Html do Elm, existem diversas funções responsáveis pela criação das tags HTML.
+* As funções responsáveis pela criação das tags HTML possuem **assinaturas consistentes**.
+* O nome da função é o **nome da tag HTML**, o primeiro argumento é uma **lista de atributos** e o segundo argumento é uma **lista de elementos filhos**. Por exemplo, `div [] []` retornará `<div></div>` ou `p [class "story"] [text "once"]` retornará `<p class="story">once</p>`.
+* É possível utilizar uma função de um módulo sem a necessidade de **informá-lo explicitamente** como em `Html.text "Hello World"`. 
+* Isso pode ser feito **importando** o módulo em questão e **expondo** as funções desejadas. Por exemplo, `import Html exposing (div, p, button, text)`.
+* Pode-se importar **todas as funções** utilizando a notação `..`. Por exemplo, `import Html exposing (..)`.
+* Para se utilizar **atributos HTML** deve-se importar os módulos `Html.Attributes` e `Html.Events`. Por exemplo, `import Html.Attributes exposing (..)`.
+* Ao utilizar o atributo `type`, deve-se adicionar uma **aspa simples** após seu nome para diferenciá-lo da palavra-chave reservada `type` de Elm. Por exemplo, `button [type' "button"]`.
+* Em `view : Model -> Html Msg` diz que a função `view` recebe uma `Model` como argumento e retorna um `Html` como resultado que pode gerar uma `Msg`.
+* A função `beginnerProgram` do módulo `Html.App` é responsável por **juntar as três partes** (*model*, *view* e *update*) de uma aplicação Elm.
+* O módulo `Html.App` é responsável por *manter o estado da aplicação*, *gerenciar as mensagens* e *chamar as funções `view` e `update`* de acordo com a necessidade.
+* O funcionamento do **fluxo da aplicação** em Elm é a seguinte: 
+    1. a **model inicial** define o **estado atual da aplicação**
+    2. a função `view` é chamada com o **estado atual da aplicação** ou model
+    3. a função `view` gera uma **representação visual** do estado atual da aplicação
+    4. uma **mensagem** é gerada e a função `update` é chamada com a *mensagem* e o *estado atual da aplicação* como argumentos
+    5. a função `update` cria uma **nova model** baseada na *mensagem informada* e na *model anterior*
+    6. a **nova model** é retornada e **armazenada** como o novo **estado atual da aplicação**
+    7. a função `view` é chamada novamente com o **estado da aplicação atualizado**
+    8. e a função `view` gera uma **nova representação visual** do novo estado atual da aplicação
+* O **estado da aplicação** é gerenciado pelo módulo `Html.App` e trabalha exclusivamente com **funções puras**.
