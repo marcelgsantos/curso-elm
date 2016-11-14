@@ -257,3 +257,9 @@ case msg of
     7. a função `view` é chamada novamente com o **estado da aplicação atualizado**
     8. e a função `view` gera uma **nova representação visual** do novo estado atual da aplicação
 * O **estado da aplicação** é gerenciado pelo módulo `Html.App` e trabalha exclusivamente com **funções puras**.
+ 
+## [11 - Improving The Calorie Counter](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254147)
+
+* O tipo `Maybe String` diz que um valor **pode ou não** ser uma string.
+* O *type alias* pode ser utilizado como uma função para **construir novos valores**.
+* Ao tentar converter um valor de string para inteiro utilizando a função `String.toInt`, pode-se obter `Ok` ou `Err`.
