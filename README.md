@@ -263,3 +263,8 @@ case msg of
 * O tipo `Maybe String` diz que um valor **pode ou não** ser uma string.
 * O *type alias* pode ser utilizado como uma função para **construir novos valores**.
 * Ao tentar converter um valor de string para inteiro utilizando a função `String.toInt`, pode-se obter `Ok` ou `Err`.
+
+## [12 - Planning The Scorekeeper App](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254145)
+
+* Recomenda-se planejar uma **aplicação Elm** pensando em model, update e view.
+* Recomenda-se quebrar a aplicação em **componentes** ou **funções**.
