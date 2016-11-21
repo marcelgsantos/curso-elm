@@ -268,3 +268,11 @@ case msg of
 
 * Recomenda-se planejar uma **aplicação Elm** pensando em model, update e view.
 * Recomenda-se quebrar a aplicação em **componentes** ou **funções**.
+
+## [13 - Using A Build Process](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254148)
+
+* Utiliza-se o comando `elm make` para **compilar** código Elm.
+* Em `elm make ./Main.elm --output ./bundle.js`, a aplicação Elm é compilada para um arquivo chamado `bundle.js`.
+* O arquivo gerado a partir da compilação pode ser **incluído normalmente** em um arquivo HTML.
+* Deve-se lembrar de **associar** a aplicação Elm a um elemento do HTML. Por exemplo, `var app = Elm.Main.embed(document.getElementById("app"))`.
+* Pode-se utilizar uma ferramenta como o Gulp para **automatizar** a compilação de uma aplicação Elm.
