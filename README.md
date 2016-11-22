@@ -276,3 +276,10 @@ case msg of
 * O arquivo gerado a partir da compilação pode ser **incluído normalmente** em um arquivo HTML.
 * Deve-se lembrar de **associar** a aplicação Elm a um elemento do HTML. Por exemplo, `var app = Elm.Main.embed(document.getElementById("app"))`.
 * Pode-se utilizar uma ferramenta como o Gulp para **automatizar** a compilação de uma aplicação Elm.
+
+## [14 - Beginning our Scorekeeper App | Model & Form Sections of Update and View](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254149)
+
+* A utilização de **pattern matching** deve ser **exaustiva** e cobrir todos os casos possíveis.
+* Pode-se utilizar o `_` como **coringa** em pattern matching postergar a implementação de todos os casos possíveis.
+* O Elm utiliza uma implementação de virtual DOM poderosíssima.
+* Pode-se utilizar a função `Debug.log` para imprimir **informações no log** do navegador.
