@@ -283,3 +283,11 @@ case msg of
 * Pode-se utilizar o `_` como **coringa** em pattern matching postergar a implementação de todos os casos possíveis.
 * O Elm utiliza uma implementação de virtual DOM poderosíssima.
 * Pode-se utilizar a função `Debug.log` para imprimir **informações no log** do navegador.
+
+## [15 - Completing the Form Section](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254150)
+
+* Para **adicionar** um valor em uma lista utiliza-se o operador `++`. Por exemplo, `newPlayers = players ++ [player]`.
+* O operador `++` opera somente sobre **listas**. Por isso, devemos colocar o valor dentro de uma lista antes de concatenar.
+* Pode-se utilizar o operador `::` (cons) para adicionar um valor no **começo** de uma lista.
+* Utilizar o operador `::` é mais **performático** pois, para adicionar o valor no início da lista, não é preciso percorrer a lista inteira.
+* Pode-se utilizar a função `List.map` para **aplicar uma função** em cada elemento de uma lista.

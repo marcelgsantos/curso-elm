@@ -4,6 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Html.App as App
+import String
 
 
 type alias Model =
@@ -54,8 +55,73 @@ update msg model =
             Debug.log "Input Updated Model"
                 { model | name = name }
 
+        Cancel ->
+            { model | name = "", playerId = Nothing }
+
+        Save ->
+            if (String.isEmpty model.name) then
+                model
+            else
+                save model
+
         _ ->
             model
+
+
+save : Model -> Model
+save model =
+    case model.playerId of
+        Just id ->
+            edit model id
+
+        Nothing ->
+            add model
+
+
+add : Model -> Model
+add model =
+    let
+        player =
+            Player (List.length model.players) model.name 0
+
+        newPlayers =
+            player :: model.players
+    in
+        { model
+            | players = newPlayers
+            , name = ""
+        }
+
+
+edit : Model -> Int -> Model
+edit model id =
+    let
+        newPLayers =
+            List.map
+                (\player ->
+                    if player.id == id then
+                        { player | name = model.name }
+                    else
+                        player
+                )
+                model.players
+
+        newPlays =
+            List.map
+                (\play ->
+                    if play.playerId == id then
+                        { play | name = model.name }
+                    else
+                        play
+                )
+                model.plays
+    in
+        { model
+            | players = newPLayers
+            , plays = newPlays
+            , name = ""
+            , playerId = Nothing
+        }
 
 
 view : Model -> Html Msg

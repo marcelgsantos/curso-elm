@@ -7897,19 +7897,27 @@ var _elm_lang$html$Html_Events$Options = F2(
 		return {stopPropagation: a, preventDefault: b};
 	});
 
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		if (_p0.ctor === 'Input') {
-			return A2(
-				_elm_lang$core$Debug$log,
-				'Input Updated Model',
-				_elm_lang$core$Native_Utils.update(
-					model,
-					{name: _p0._0}));
-		} else {
-			return model;
-		}
+var _user$project$Main$edit = F2(
+	function (model, id) {
+		var newPlays = A2(
+			_elm_lang$core$List$map,
+			function (play) {
+				return _elm_lang$core$Native_Utils.eq(play.playerId, id) ? _elm_lang$core$Native_Utils.update(
+					play,
+					{name: model.name}) : play;
+			},
+			model.plays);
+		var newPLayers = A2(
+			_elm_lang$core$List$map,
+			function (player) {
+				return _elm_lang$core$Native_Utils.eq(player.id, id) ? _elm_lang$core$Native_Utils.update(
+					player,
+					{name: model.name}) : player;
+			},
+			model.players);
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{players: newPLayers, plays: newPlays, name: '', playerId: _elm_lang$core$Maybe$Nothing});
 	});
 var _user$project$Main$initModel = {
 	players: _elm_lang$core$Native_List.fromArray(
@@ -7926,6 +7934,46 @@ var _user$project$Main$Model = F4(
 var _user$project$Main$Player = F3(
 	function (a, b, c) {
 		return {id: a, name: b, points: c};
+	});
+var _user$project$Main$add = function (model) {
+	var player = A3(
+		_user$project$Main$Player,
+		_elm_lang$core$List$length(model.players),
+		model.name,
+		0);
+	var newPlayers = A2(_elm_lang$core$List_ops['::'], player, model.players);
+	return _elm_lang$core$Native_Utils.update(
+		model,
+		{players: newPlayers, name: ''});
+};
+var _user$project$Main$save = function (model) {
+	var _p0 = model.playerId;
+	if (_p0.ctor === 'Just') {
+		return A2(_user$project$Main$edit, model, _p0._0);
+	} else {
+		return _user$project$Main$add(model);
+	}
+};
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p1 = msg;
+		switch (_p1.ctor) {
+			case 'Input':
+				return A2(
+					_elm_lang$core$Debug$log,
+					'Input Updated Model',
+					_elm_lang$core$Native_Utils.update(
+						model,
+						{name: _p1._0}));
+			case 'Cancel':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{name: '', playerId: _elm_lang$core$Maybe$Nothing});
+			case 'Save':
+				return _elm_lang$core$String$isEmpty(model.name) ? model : _user$project$Main$save(model);
+			default:
+				return model;
+		}
 	});
 var _user$project$Main$Play = F4(
 	function (a, b, c, d) {
