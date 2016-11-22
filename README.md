@@ -300,3 +300,7 @@ case msg of
 
 * Recomenda-se utilizar a função `List.filter` para **filtrar uma lista** de acordo com uma condição. Por exemplo, `List.filter (\u -> u.age >= 18) users`.
 * A utilização do **caractere coringa** `_` não se faz necessária quando se cobre todos os casos em **pattern matching**.
+
+## [18 - Final Thoughts](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254153)
+
+* Recomenda-se conhecer como se trabalha com HTTP, web sockets, componentes, *single page apps*, comunicação com o JavaScript, testes entre outras coisas em Elm.
