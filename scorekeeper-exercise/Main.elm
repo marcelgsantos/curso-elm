@@ -70,8 +70,27 @@ update msg model =
         Edit player ->
             { model | name = player.name, playerId = Just player.id }
 
-        _ ->
-            model
+        DeletePlay play ->
+            deletePlay model play
+
+
+deletePlay : Model -> Play -> Model
+deletePlay model play =
+    let
+        newPlays =
+            List.filter (\p -> p.id /= play.id) model.plays
+
+        newPlayers =
+            List.map
+                (\player ->
+                    if player.id == play.playerId then
+                        { player | points = player.points - 1 * play.points }
+                    else
+                        player
+                )
+                model.players
+    in
+        { model | plays = newPlays, players = newPlayers }
 
 
 score : Model -> Player -> Int -> Model
@@ -160,7 +179,44 @@ view model =
         [ h1 [] [ text "Score Keeper" ]
         , playerSection model
         , playerForm model
+        , playSection model
         , p [] [ text (toString model) ]
+        ]
+
+
+playSection : Model -> Html Msg
+playSection model =
+    div []
+        [ playListHeader
+        , playList model
+        ]
+
+
+playListHeader : Html Msg
+playListHeader =
+    header []
+        [ div [] [ text "Plays" ]
+        , div [] [ text "Points" ]
+        ]
+
+
+playList : Model -> Html Msg
+playList model =
+    model.plays
+        |> List.map play
+        |> ul []
+
+
+play : Play -> Html Msg
+play play =
+    li []
+        [ i
+            [ class "remove"
+            , onClick (DeletePlay play)
+            ]
+            []
+        , div [] [ text play.name ]
+        , div [] [ text (toString play.points) ]
         ]
 
 

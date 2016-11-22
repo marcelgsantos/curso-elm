@@ -295,3 +295,8 @@ case msg of
 ## [16 - Creating the Player Section](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254151)
 
 * Recomenda-se utilizar a função `List.sortBy` para **ordenar uma lista** de acordo com um campo. Por exemplo, `List.sortBy .name users`.
+
+## [17 - Creating the Play Section](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254152)
+
+* Recomenda-se utilizar a função `List.filter` para **filtrar uma lista** de acordo com uma condição. Por exemplo, `List.filter (\u -> u.age >= 18) users`.
+* A utilização do **caractere coringa** `_` não se faz necessária quando se cobre todos os casos em **pattern matching**.
