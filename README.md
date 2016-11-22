@@ -291,3 +291,7 @@ case msg of
 * Pode-se utilizar o operador `::` (cons) para adicionar um valor no **começo** de uma lista.
 * Utilizar o operador `::` é mais **performático** pois, para adicionar o valor no início da lista, não é preciso percorrer a lista inteira.
 * Pode-se utilizar a função `List.map` para **aplicar uma função** em cada elemento de uma lista.
+
+## [16 - Creating the Player Section](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254151)
+
+* Recomenda-se utilizar a função `List.sortBy` para **ordenar uma lista** de acordo com um campo. Por exemplo, `List.sortBy .name users`.
