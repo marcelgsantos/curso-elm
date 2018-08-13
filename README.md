@@ -239,15 +239,14 @@ case msg of
 * No **módulo** Html do Elm, existem diversas funções responsáveis pela criação das tags HTML.
 * As funções responsáveis pela criação das tags HTML possuem **assinaturas consistentes**.
 * O nome da função é o **nome da tag HTML**, o primeiro argumento é uma **lista de atributos** e o segundo argumento é uma **lista de elementos filhos**. Por exemplo, `div [] []` retornará `<div></div>` ou `p [class "story"] [text "once"]` retornará `<p class="story">once</p>`.
-* É possível utilizar uma função de um módulo sem a necessidade de **informá-lo explicitamente** como em `Html.text "Hello World"`. 
+* É possível utilizar uma função de um módulo sem a necessidade de **informá-lo explicitamente** como em `Html.text "Hello World"`.
 * Isso pode ser feito **importando** o módulo em questão e **expondo** as funções desejadas. Por exemplo, `import Html exposing (div, p, button, text)`.
 * Pode-se importar **todas as funções** utilizando a notação `..`. Por exemplo, `import Html exposing (..)`.
 * Para se utilizar **atributos HTML** deve-se importar os módulos `Html.Attributes` e `Html.Events`. Por exemplo, `import Html.Attributes exposing (..)`.
 * Ao utilizar o atributo `type`, deve-se adicionar uma **aspa simples** após seu nome para diferenciá-lo da palavra-chave reservada `type` de Elm. Por exemplo, `button [type' "button"]`.
 * Em `view : Model -> Html Msg` diz que a função `view` recebe uma `Model` como argumento e retorna um `Html` como resultado que pode gerar uma `Msg`.
-* A função `beginnerProgram` do módulo `Html.App` é responsável por **juntar as três partes** (*model*, *view* e *update*) de uma aplicação Elm.
-* O módulo `Html.App` é responsável por *manter o estado da aplicação*, *gerenciar as mensagens* e *chamar as funções `view` e `update`* de acordo com a necessidade.
-* O funcionamento do **fluxo da aplicação** em Elm é a seguinte: 
+* A função `beginnerProgram` do módulo `Html` é responsável por **juntar as três partes** (*model*, *view* e *update*) de uma aplicação Elm, ou seja, *manter o estado da aplicação*, *gerenciar as mensagens* e *chamar as funções `view` e `update`* de acordo com a necessidade.
+* O funcionamento do **fluxo da aplicação** em Elm é a seguinte:
     1. a **model inicial** define o **estado atual da aplicação**
     2. a função `view` é chamada com o **estado atual da aplicação** ou model
     3. a função `view` gera uma **representação visual** do estado atual da aplicação
@@ -256,8 +255,8 @@ case msg of
     6. a **nova model** é retornada e **armazenada** como o novo **estado atual da aplicação**
     7. a função `view` é chamada novamente com o **estado da aplicação atualizado**
     8. e a função `view` gera uma **nova representação visual** do novo estado atual da aplicação
-* O **estado da aplicação** é gerenciado pelo módulo `Html.App` e trabalha exclusivamente com **funções puras**.
- 
+* O **estado da aplicação** é gerenciado pelo módulo `Html` e trabalha exclusivamente com **funções puras**.
+
 ## [11 - Improving The Calorie Counter](http://courses.knowthen.com/courses/elm-for-beginners/lectures/1254147)
 
 * O tipo `Maybe String` diz que um valor **pode ou não** ser uma string.

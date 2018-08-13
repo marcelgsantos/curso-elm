@@ -3,7 +3,6 @@ module Main exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Html.App as App
 import String
 
 
@@ -61,7 +60,7 @@ view model =
     div []
         [ h3 [] [ text ("Total Calories: " ++ (toString model.calories)) ]
         , input
-            [ type' "text"
+            [ type_ "text"
             , onInput Input
             , value
                 (if model.input == 0 then
@@ -72,12 +71,11 @@ view model =
             ]
             []
         , div [] [ text (Maybe.withDefault "" model.error) ]
-        , button [ type' "button", onClick AddCalorie ] [ text "Add" ]
-        , button [ type' "button", onClick Clear ] [ text "Clear" ]
+        , button [ type_ "button", onClick AddCalorie ] [ text "Add" ]
+        , button [ type_ "button", onClick Clear ] [ text "Clear" ]
         , p [] [ text (toString model) ]
         ]
 
-
-main : Program Never
+main : Program Never Model Msg
 main =
-    App.beginnerProgram { model = initModel, view = view, update = update }
+    beginnerProgram { model = initModel, view = view, update = update }
